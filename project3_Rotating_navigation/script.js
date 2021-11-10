@@ -9,7 +9,3 @@ opentag.addEventListener('click', () => {
 closetag.addEventListener('click', () => {
     container.classList.remove('show-nav')
 })
-
-//edit
-
-
