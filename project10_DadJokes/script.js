@@ -16,3 +16,4 @@ function generateJoke(){
         jokeEl.innerHTML = data.joke
     })
 }
+
