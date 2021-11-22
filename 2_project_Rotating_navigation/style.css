@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300;1,400&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body { 
+    font-family: 'Leto', sans-serif;
+    background-color: #333;
+    color : #222;
+    overflow-x: hidden;   
+    margin: 0 ;
+    /* overflow-x => horizontal overflow  */
+    /* overflow : hidden | scroll | auto */
+    /* overflow : hidden auto */
+    /* overflow used when the fixed size container can't contain all inside it */
+}
+
+.container{
+    background-color : #fafafa;
+    transform-origin: top left;
+    transition : transform 0.5s linear;   
+    width: 100vw;
+    min-height: 100vh;
+    padding : 50px;
+
+    /* got it : transition , can take mulitple properties
+        transition : transform 0.5s, background 0.5s
+        transition : transform 0.5s linear | ease-in | ease-out 1s    .. here 1s is transition-delay
+    */
+
+}
+
+.container.show-nav{   /*when click on nav bar, "show-nav" added to the container,*/
+    transform: rotate(-20deg);     
+    /* this transform is taken for transition inside .container */
+}
+
+.circle-container{
+    position: fixed ;  
+    top: -100px;   
+    left: -100px;  
+    /* 100px upper from the fixed postion*/
+    /*100px  left from the fixed postion*/
+    /* position : fixed = > relative to the viewport(browser window) fixed at place */
+
+}
+
+.circle{
+    background-color: #ff7979;
+    height: 200px;   /*making a square by giving same height and width*/
+    width: 200px;
+    border-radius: 50%;   /*to make it a circle in the first place*/
+    position : relative;  
+    transition : transform 0.5s linear;
+    /* postion is relative to its normal position */
+
+}
+
+
+.circle button { 
+    cursor: pointer; 
+    position : absolute; /* relative to parent which is the circle-container*/
+    top : 50%;
+    left : 50%;
+    height : 100px;
+    background: transparent;
+    border : 0;
+    font-size: 26px;
+    color : #fff ;
+}
+
+.container.show-nav .circle{
+    transform: rotate(-70deg);
+    /* left rotation */
+}
+
+
+.circle button#open{
+    left: 60%;
+
+}
+
+.circle button#close{
+    top : 60%;
+    transform : rotate(90deg);
+    transform-origin: top left;
+}
+
+.container.show-nav + nav li {
+    transform : translateX(0);
+    transition-delay: 0.3s;
+}
+
+nav { 
+    position: fixed;
+    bottom : 40px;
+    left : 0;
+    z-index : 100;
+}
+
+nav ul { 
+    list-style-type: none;
+    padding-left: 30px;
+}
+
+nav ul li{
+    text-transform: uppercase;
+    color : #fff;
+    margin: 40px 0 ; 
+    transform : translateX(-100%);
+    transition: transform 0.4s ease-in;
+}
+
+nav ul li + li { 
+    margin-left: 15px;
+    transform : translateX(-150%);
+
+}
+
+nav ul li + li + li{
+    margin-left : 30px;
+    transform : translateX(-200%);
+
+}
+
+nav ul li i{
+    font-size: 20px;
+    margin : 10px;
+}
+
+.content img{
+    max-width: 100%;
+}
+.content{
+    max-width: 1000px;
+    margin : 50px auto;
+}
+
+.content h1{
+    margin : 0;
+}
+
+.content small{
+    color: #555;
+    font-style : italic;
+}
+
+.content p{
+    color : #333;
+    line-height: 1.5;
+}
